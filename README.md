@@ -1,8 +1,8 @@
 
-#ChicagoCrimeDataAnalysis
+# ChicagoCrimeDataAnalysis
 Dataset- https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2
 
-Step 1: Load the Data
+# Step 1: Load the Data
 We can start by downloading the Chicago crime dataset on kaggle.com. Once the dataset is downloaded, we place the CSV files in our working folder. The dataset contains all the incidents of crime that occured in Chicago from 2010 to present. We will use only the CSV's from 2020 to 2022. Once we have successfully read the files, we exclude the columns that we will not use for our analysis (for example "Ward", "District"). The columns that remain in our dataset are:
 
 ID: Unique identifier of the record
