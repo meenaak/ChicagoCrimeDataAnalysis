@@ -32,7 +32,7 @@ Next, we have to merge df, with the pop dataframe to get the remaining columns. 
 Step 2: Explore the data
 At the beginning of a project, it is usual to not quite understand the data very well. For this reason, the following examples will help us understand them better.
 
-2.1 Primary Type frequency
+# 2.1 Primary Type frequency
 
 The plot below shows the frequency of the Primary type labels that occur in our data
 
@@ -41,7 +41,7 @@ The plot below shows the frequency of the Primary type labels that occur in our 
 
 Theft and battery are the most frequent crimes that occur in Chicago. We can easily observe that our data is highly imbalanced. This will affect the accuracy of the model that we will use later, so we have to consider this when we will measure its performance.
 
-2.2 Crime map of Chicago
+# 2.2 Crime map of Chicago
 
 Next, we can use the Plotly library of Python to create a Chicago crime map. For this purpose, we will use only the 4% of our data for this plot, due to the plugin's capacity constraints for processing data at the same time. The end result is an interactive map of Chicago that demonstrates how each crime type is distributed across the city.
 
@@ -52,7 +52,7 @@ Below we can see the distribution of the most often Primary type, which is Theft
 
 We observe that theft is more intense in the east of Chicago, and next in the northeast. We can use this crime map to see the distribution of other crimes also. If we hover over a dot, we can see the details we have of the specific crime.
 
-2.3 At what time a crime occured
+# 2.3 At what time a crime occured
 
 With the following plot we select the most common types of crime, and we see how they behave throughout the day.
 
@@ -63,7 +63,7 @@ Our findings suggest that criminals are more active during the early afternoon a
 
 If we want, we can be more specific and add more parameters (for example when the location is "Residence" or "Apartment")
 
-2.4 In which area the most crime incidents are recorded
+# 2.4 In which area the most crime incidents are recorded
 
 Using a bar chart of Plotly, we can find out which area records the most crime incidents in Chicago.
 
@@ -72,7 +72,7 @@ Using a bar chart of Plotly, we can find out which area records the most crime i
 
 West Side is by far the busiest area, and on the contrary, the least crime incidents are recorded in the north.
 
-2.5 Crime heatmap of Chicago
+# 2.5 Crime heatmap of Chicago
 
 With the Python library folium, we can create a heatmap of Chicago to visualize the density of criminal activity in the city.
 
@@ -81,7 +81,7 @@ With the Python library folium, we can create a heatmap of Chicago to visualize 
 
 The most heavily affected part of Chicago is in the Central region, and upon zooming in the map we can find the North State Street that stands out as a hotspot. This street is one of the most popular shopping destinations of the city, and is also the block with the most crime incidents recorded (particularly theft).
 
-2.6 Location analysis on a specific day
+# 2.6 Location analysis on a specific day
 
 Proceeding with the analysis, we can become more specific and visualize the crimes that occurred a specific day, on a specific location of Chicago. If we group our data by date, we will find out that the date with the most crime incidents occur on 31st of May 2020 (George Floyd protests). We can choose one of the 77 community areas, we will pick for this example Near West Side.
 
@@ -92,10 +92,10 @@ The first step is to visualize all the crimes that occurred with a heatmap on th
 
 Additional visualizations, deeper analysis and complete code are available on the dashboards files. While there is still room for further exploration, we have a solid understanding of the data, and we can continue with clustering.
 
-Step 3: Clustering
+# Step 3: Clustering
 Clustering is a technique that groups similar data points together without using pre-labeled information. This process organizes data into various sets based on how closely they resemble each other. We will apply this method to discover the similarities between different regions in Chicago by utilizing the types of crimes recorded in each area.
 
-3.1 Finding the optimal number of clusters
+# 3.1 Finding the optimal number of clusters
 
 First, we have to find the K number, that will make our number of clusters optimal. To achieve this, we will use The Elbow method. The Elbow Method is a widely used approach to determine the ideal number of clusters in a given dataset. This method utilizes the Within Cluster Summed Squares (WCSS) parameter, which is calculated based on the location of the centroids of each group. The WCSS parameter decreases as the number of clusters increases. As more clusters are added, the difference in decrease of WCSS becomes less significant. The optimal number of clusters is reached when the decrease in WCSS is not significant.
 
@@ -104,7 +104,7 @@ First, we have to find the K number, that will make our number of clusters optim
 
 Based on the image above, there is a significant difference when the number of clusters is 3. Once this number is reached, the distinction between clusters becomes less significant. In this example, the optimal number of clusters is 3.
 
-3.2 Division of Chicago regions
+# 3.2 Division of Chicago regions
 
 We can observe the geographical location of each cluster with the help of a map created with the Plotly library, in order to identify each region by its corresponding cluster colour assigned by the K-Means algorithm.
 
@@ -131,7 +131,7 @@ Regions: Central, Far Southwest Side, Far North Side, North Side, Northwest Side
 
 The last cluster includes the areas that make up the northern part of Chicago, as well as its center. These areas are grouped into a cluster due to their comparatively low number of recorded crimes than the rest of the city, with theft being the most frequent type of crime recorded.
 
-Step 4: Prediction model
+# Step 4: Prediction model
 Our target is to develop a model that can make predictions of the type of a crime with high accuracy, giving to the model as input, features like date and the area. To achieve this, we use Random Forest Classifier. Random Forest is a machine learning technique, used to solve classification and regression problems. It combines multiple decision trees and uses ensemble learning, which combines multiple classifiers to tackle complex problems. The algorithm can only handle integer and boolean values, but no categorical data. Therefore, we need to prepare our data before utilizing Random Forest.
 
 From our dataset, we will use in our model the features:
