@@ -1,4 +1,4 @@
-# ChicagoCrimeDataAnalysis
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/fb523902-503d-4a63-9209-1fc6b8378efb)# ChicagoCrimeDataAnalysis
 Dataset- https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2
 Step 1: Load the Data
 We can start by downloading the Chicago crime dataset on kaggle.com. Once the dataset is downloaded, we place the CSV files in our working folder. The dataset contains all the incidents of crime that occured in Chicago from 2010 to present. We will use only the CSV's from 2020 to 2022. Once we have successfully read the files, we exclude the columns that we will not use for our analysis (for example "Ward", "District"). The columns that remain in our dataset are:
@@ -20,7 +20,10 @@ Month: We extract this from the date column, month of the occurred incident
 Hour: We extract this from the date column, hour of the occurred incident
 Once we load the data into dataframes and concat them into one dropping na values, we use the head() command to ensure that we can see the data.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/da8b0333-fb31-4929-8bbb-332ee1677486)
+
+
+
 
 Next, we have to merge df, with the pop dataframe to get the remaining columns. Full code is available on the uploaded files.
 
@@ -31,7 +34,8 @@ At the beginning of a project, it is usual to not quite understand the data very
 
 The plot below shows the frequency of the Primary type labels that occur in our data
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/82a68ba6-7ae9-474c-8744-10ce31c0e447)
+
 
 Theft and battery are the most frequent crimes that occur in Chicago. We can easily observe that our data is highly imbalanced. This will affect the accuracy of the model that we will use later, so we have to consider this when we will measure its performance.
 
@@ -41,7 +45,8 @@ Next, we can use the Plotly library of Python to create a Chicago crime map. For
 
 Below we can see the distribution of the most often Primary type, which is Theft (as shown from the previous plot).
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/154b3d70-432f-4d4d-80d4-edff1978289d)
+
 
 We observe that theft is more intense in the east of Chicago, and next in the northeast. We can use this crime map to see the distribution of other crimes also. If we hover over a dot, we can see the details we have of the specific crime.
 
@@ -49,7 +54,8 @@ We observe that theft is more intense in the east of Chicago, and next in the no
 
 With the following plot we select the most common types of crime, and we see how they behave throughout the day.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/9b98362c-61c9-4079-8db5-97433d6a55d1)
+
 
 Our findings suggest that criminals are more active during the early afternoon and midnight. The peak of the most common crime occurs most often at 19:00. Also, there are crimes such as "NARCOTICS" that occur rarely in the night, but most of the times in the day.
 
@@ -59,7 +65,8 @@ If we want, we can be more specific and add more parameters (for example when th
 
 Using a bar chart of Plotly, we can find out which area records the most crime incidents in Chicago.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/511a18ac-4fc2-4c3a-a1d7-edf191f83689)
+
 
 West Side is by far the busiest area, and on the contrary, the least crime incidents are recorded in the north.
 
@@ -67,7 +74,8 @@ West Side is by far the busiest area, and on the contrary, the least crime incid
 
 With the Python library folium, we can create a heatmap of Chicago to visualize the density of criminal activity in the city.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/6b9efa47-cb2b-4012-9879-6c37d24a528e)
+
 
 The most heavily affected part of Chicago is in the Central region, and upon zooming in the map we can find the North State Street that stands out as a hotspot. This street is one of the most popular shopping destinations of the city, and is also the block with the most crime incidents recorded (particularly theft).
 
@@ -75,7 +83,8 @@ The most heavily affected part of Chicago is in the Central region, and upon zoo
 
 Proceeding with the analysis, we can become more specific and visualize the crimes that occurred a specific day, on a specific location of Chicago. If we group our data by date, we will find out that the date with the most crime incidents occur on 31st of May 2020 (George Floyd protests). We can choose one of the 77 community areas, we will pick for this example Near West Side.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/f8eba10e-ebca-4ea5-9ccf-3c3023a1da44)
+
 
 The first step is to visualize all the crimes that occurred with a heatmap on the location. Next, using the latitude and longitude of these crimes, we find the centroid of these incidents and mark it with a black circle. In case we have one ambulance or patrol car available, it would be most efficient to place it in the spot of this circle, for quickest average response time. Therefore, it would be beneficial to station emergency services between Eisenhover Expressway and South Ashland Avenue, in the event of similar situations in the future.
 
@@ -88,7 +97,8 @@ Clustering is a technique that groups similar data points together without using
 
 First, we have to find the K number, that will make our number of clusters optimal. To achieve this, we will use The Elbow method. The Elbow Method is a widely used approach to determine the ideal number of clusters in a given dataset. This method utilizes the Within Cluster Summed Squares (WCSS) parameter, which is calculated based on the location of the centroids of each group. The WCSS parameter decreases as the number of clusters increases. As more clusters are added, the difference in decrease of WCSS becomes less significant. The optimal number of clusters is reached when the decrease in WCSS is not significant.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/784861d3-711b-4d3b-8e4a-41ede7bddded)
+
 
 Based on the image above, there is a significant difference when the number of clusters is 3. Once this number is reached, the distinction between clusters becomes less significant. In this example, the optimal number of clusters is 3.
 
@@ -96,7 +106,8 @@ Based on the image above, there is a significant difference when the number of c
 
 We can observe the geographical location of each cluster with the help of a map created with the Plotly library, in order to identify each region by its corresponding cluster colour assigned by the K-Means algorithm.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/0b4058a4-8fad-4341-b741-a38410f423f7)
+
 
 We can notice that there is a geographical relationship in the way our clusters are grouped, thus we can make observations about the division of them and the regions they contain.
 
@@ -133,15 +144,18 @@ Taking account of these features, the primary input to our crime type prediction
 
 The next step is to divide our data into two separate sets, one for training and one for testing. We will use 80% of the data for training and the remaining 20% for testing. Once this is done, we can use the training dataset to train our Random Forest model.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/2d28c9d0-7ad0-4bc6-8904-df338c5c6fc4)
+
 
 Our model achieves 28% accuracy. At first glance, this might not seem very impressive, but considering that we have 32 types of crime and only 620.000 records in our dataset, the number is respectable. Lastly, let's observe some predictions made by our model and compare them to the actual crime types.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/539d1f4f-211f-46e2-b327-4d522b85b2d6)
+
 
 Our model mostly predicts the labels of crimes of 1 and 4. This is also confirmed by the confusion matrix below.
 
-Image Alt Text
+![image](https://github.com/meenaak/ChicagoCrimeDataAnalysis/assets/37869066/07dc9cc6-7b1c-413b-9b61-1dd8c05be676)
+
 
 The confusion matrix shows that our model frequently predicts crime categories 1 and 4, neglecting the rest crime types. This is due to the uneven distribution of crime types in the training data.
 
